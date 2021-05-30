@@ -1,8 +1,8 @@
-on: push
+on: [push, pull_request]
 name: test
 jobs:
   checks:
-    name: run
+    name: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
