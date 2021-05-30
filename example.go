@@ -1,5 +1,6 @@
 package rotator
 
+/*
 import (
 	"context"
 	"database/sql"
@@ -67,3 +68,4 @@ func main() {
 		time.Sleep(time.Second)
 	}
 }
+*/
