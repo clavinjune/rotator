@@ -2,10 +2,9 @@ package rotator
 
 import (
 	"context"
+	"database/sql/driver"
 	"fmt"
 	"testing"
-
-	"github.com/lib/pq"
 )
 
 func TestRegisterRotationDriver(t *testing.T) {
@@ -27,15 +26,19 @@ func TestRegisterRotationDriver(t *testing.T) {
 		opt: Opt{
 			MaxRetry:   3,
 			DriverName: "test2",
-			DriverBase: &pq.Driver{},
-			Fetcher:    nil,
+			DriverBase: openFunc(func(name string) (driver.Conn, error) {
+				return nil, nil
+			}),
+			Fetcher: nil,
 		},
 		want: "rotator: Fetcher is nil",
 	}, {
 		opt: Opt{
 			MaxRetry:   2,
 			DriverName: "test3",
-			DriverBase: &pq.Driver{},
+			DriverBase: openFunc(func(name string) (driver.Conn, error) {
+				return nil, nil
+			}),
 			Fetcher: FetcherFunc(func(ctx context.Context) (dsn string, err error) {
 				return "", nil
 			}),

@@ -1,6 +1,5 @@
-package rotator
+package main
 
-/*
 import (
 	"context"
 	"database/sql"
@@ -9,6 +8,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/ClavinJune/rotator"
 	heroku "github.com/heroku/heroku-go/v5"
 	"github.com/lib/pq"
 )
@@ -19,7 +19,7 @@ func getHerokuSvc(username, password string) *heroku.Service {
 	return heroku.NewService(heroku.DefaultClient)
 }
 
-func getHerokuFetcher(svc *heroku.Service, appName string) FetcherFunc {
+func getHerokuFetcher(svc *heroku.Service, appName string) rotator.FetcherFunc {
 	return func(ctx context.Context) (dsn string, err error) {
 		log.Println("heroku fetcher called")
 		ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
@@ -42,7 +42,7 @@ func main() {
 	svc := getHerokuSvc(os.Getenv("HEROKU_USERNAME"), os.Getenv("HEROKU_PASSWORD"))
 	fetcher := getHerokuFetcher(svc, os.Getenv("HEROKU_APPNAME"))
 
-	RegisterRotationDriver(Opt{
+	rotator.RegisterRotationDriver(rotator.Opt{
 		MaxRetry:   3,
 		DriverName: "testing",
 		DriverBase: &pq.Driver{},
@@ -68,4 +68,3 @@ func main() {
 		time.Sleep(time.Second)
 	}
 }
-*/
