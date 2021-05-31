@@ -4,11 +4,6 @@ import (
 	"database/sql"
 )
 
-const (
-	// maxRetry defined the least retry number
-	maxRetry int = 2
-)
-
 // RegisterRotationDriver registers the custom driver with the given opt
 // RegisterRotationDriver may trigger panic if the given opt is invalid
 func RegisterRotationDriver(opt Opt) {
@@ -36,12 +31,12 @@ func validate(opt Opt) {
 	}
 }
 
-// getMaxRetry gets the maxRetry from the opt
+// getMaxRetry gets the fetcherMaxRetry from the opt
 // getMaxRetry will returns 2 at least
 func getMaxRetry(opt Opt) int {
-	if opt.MaxRetry > maxRetry {
+	if opt.MaxRetry > fetcherMaxRetry {
 		return opt.MaxRetry
 	}
 
-	return maxRetry
+	return fetcherMaxRetry
 }

@@ -5,7 +5,12 @@ import (
 	"database/sql/driver"
 )
 
-// rotator helps base driver to fetch credentials from fetch function with defined maxRetry
+const (
+	// fetcherMaxRetry defined the least retry number
+	fetcherMaxRetry int = 2
+)
+
+// rotator helps base driver to fetch credentials from fetch function with defined fetcherMaxRetry
 type rotator struct {
 	base     driver.Driver
 	fetch    FetcherFunc
