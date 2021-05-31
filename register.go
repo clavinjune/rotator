@@ -9,7 +9,8 @@ const (
 	maxRetry int = 2
 )
 
-// RegisterRotationDriver registers the custom driver with defined opt
+// RegisterRotationDriver registers the custom driver with the given opt
+// RegisterRotationDriver may trigger panic if the given opt is invalid
 func RegisterRotationDriver(opt Opt) {
 	validate(opt)
 
