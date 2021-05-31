@@ -4,7 +4,12 @@ import (
 	"database/sql"
 )
 
-// RegisterRotationDriver registers the custom driver with the given opt
+const (
+	// FetcherDefaultMaxRetry defined the least retry number
+	FetcherDefaultMaxRetry int = 2
+)
+
+// RegisterRotationDriver registers the custom driver with the given opt.
 // RegisterRotationDriver may trigger panic if the given opt is invalid
 func RegisterRotationDriver(opt Opt) {
 	validate(opt)
