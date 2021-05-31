@@ -6,11 +6,11 @@ import (
 )
 
 const (
-	// FetcherMaxRetry defined the least retry number
-	FetcherMaxRetry int = 2
+	// FetcherDefaultMaxRetry defined the least retry number
+	FetcherDefaultMaxRetry int = 2
 )
 
-// rotator helps base driver to fetch credentials from fetch function with defined FetcherMaxRetry
+// rotator helps base driver to fetch credentials from fetch function with defined FetcherDefaultMaxRetry
 type rotator struct {
 	base     driver.Driver
 	fetch    FetcherFunc

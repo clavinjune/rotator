@@ -31,12 +31,12 @@ func validate(opt Opt) {
 	}
 }
 
-// getMaxRetry gets the FetcherMaxRetry from the opt
+// getMaxRetry gets the FetcherDefaultMaxRetry from the opt
 // getMaxRetry will returns 2 at least
 func getMaxRetry(opt Opt) int {
-	if opt.MaxRetry > FetcherMaxRetry {
+	if opt.MaxRetry > FetcherDefaultMaxRetry {
 		return opt.MaxRetry
 	}
 
-	return FetcherMaxRetry
+	return FetcherDefaultMaxRetry
 }
