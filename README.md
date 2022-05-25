@@ -6,7 +6,7 @@ so the database datasource name will be dynamically rotated depends on how you w
 ## Usage
 
 ```bash
-go get -u github.com/ClavinJune/rotator@latest
+go get -u github.com/clavinjune/rotator@latest
 ```
 
 ## Example
@@ -20,7 +20,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/ClavinJune/rotator"
+	"github.com/clavinjune/rotator"
 	"github.com/lib/pq"
 )
 
